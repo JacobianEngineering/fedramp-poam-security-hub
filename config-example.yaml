@@ -1,0 +1,35 @@
+# Output settings
+output_dir: "./poam_output"
+findings_csv: "aws_security_hub_findings.csv"
+poam_csv: "fedramp_poam_items.csv"
+poam_counter_file: "poam_counter.txt"
+
+# AWS settings
+aws:
+  profile: "your-aws-profile"  # Optional, use default if not specified
+  region: "us-east-1"
+  max_findings: 2000
+
+# POAM settings
+poam:
+  point_of_contact: "DevOps Team"
+  resources_required: "Staff time for DevOps team to review and implement remediation"
+  id_prefix: "C-"
+  start_id: 1000  # Starting ID if no counter file exists
+  default_control: "SI-2"  # Default value when no mapping exists
+  
+  # SLA timeframes for completion based on severity
+  completion_sla:
+    CRITICAL: 14
+    HIGH: 30
+    MEDIUM: 90
+    LOW: 180
+  
+  # Mapping of AWS Security Controls to NIST 800-53 controls
+  control_mappings:
+    "SSM.1": "SI-2"
+    "Config.1": "CM-8"
+    "IAM.1": "AC-2"
+    "S3.1": "SC-8"
+    "EC2.1": "SC-7"
+    # Add more mappings as needed
