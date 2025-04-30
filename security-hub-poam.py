@@ -1,3 +1,7 @@
+# Copyright (c) 2025 Jacobian Engineering
+# Licensed under the MIT License - see LICENSE file for details
+
+
 import boto3
 import json
 import csv
